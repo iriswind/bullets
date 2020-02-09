@@ -6,15 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33bdab02-bf3a-4a1c-b523-8e61d83e9532" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.7.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test.iml" afterDir="false" />
-    </list>
+    <list default="true" id="33bdab02-bf3a-4a1c-b523-8e61d83e9532" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,30 +27,26 @@
       <find>s</find>
     </findStrings>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2211" />
+    <option name="width" value="1390" />
+    <option name="height" value="994" />
   </component>
-  <component name="ProjectId" id="1XU4JlcaLj746eRNutLZLLAoL1C" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1XZ282cPjmc9UQlxlUHWbIHZXgZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="test" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/sqlite-jdbc-3.7.2.jar!/" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib/ooxml-lib/xmlbeans-3.1.0.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -96,30 +84,47 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="278" y="42" width="800" height="684" key="#Project_Structure" timestamp="1581089921615">
+    <state x="524" y="273" width="307" height="223" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581239153012">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state x="278" y="42" width="800" height="684" key="#Project_Structure/0.27.1366.708@0.27.1366.708" timestamp="1581089921615" />
-    <state x="524" y="273" width="307" height="223" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581089908773">
+    <state x="524" y="273" width="307" height="223" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.27.1366.708@0.27.1366.708" timestamp="1581239153012" />
+    <state x="261" y="43" width="824" height="691" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1581239151850">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state x="524" y="273" width="307" height="223" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.27.1366.708@0.27.1366.708" timestamp="1581089908773" />
-    <state x="313" y="124" width="719" height="521" key="FileChooserDialogImpl" timestamp="1581089821013">
+    <state x="261" y="43" width="824" height="691" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.27.1366.708@0.27.1366.708" timestamp="1581239151850" />
+    <state x="511" y="95" width="661" height="579" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1581240304110">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state x="313" y="124" width="719" height="521" key="FileChooserDialogImpl/0.27.1366.708@0.27.1366.708" timestamp="1581089821013" />
-    <state x="172" y="27" width="1012" height="708" key="SettingsEditor" timestamp="1581089836957">
+    <state x="511" y="95" width="661" height="579" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.27.1366.708@0.27.1366.708" timestamp="1581240304110" />
+    <state x="243" y="182" width="884" height="526" key="FileChooserDialogImpl" timestamp="1581240299933">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state x="172" y="27" width="1012" height="708" key="SettingsEditor/0.27.1366.708@0.27.1366.708" timestamp="1581089836957" />
-    <state x="343" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1581087293709">
+    <state x="243" y="182" width="884" height="526" key="FileChooserDialogImpl/0.27.1366.708@0.27.1366.708" timestamp="1581240299933" />
+    <state width="1320" height="161" key="GridCell.Tab.0.bottom" timestamp="1581240322059">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state x="343" y="208" key="com.intellij.ide.util.TipDialog/0.27.1366.708@0.27.1366.708" timestamp="1581087293709" />
+    <state width="1320" height="161" key="GridCell.Tab.0.bottom/0.27.1366.708@0.27.1366.708" timestamp="1581240322059" />
+    <state width="1320" height="161" key="GridCell.Tab.0.center" timestamp="1581240322058">
+      <screen x="0" y="27" width="1366" height="708" />
+    </state>
+    <state width="1320" height="161" key="GridCell.Tab.0.center/0.27.1366.708@0.27.1366.708" timestamp="1581240322058" />
+    <state width="1320" height="161" key="GridCell.Tab.0.left" timestamp="1581240322056">
+      <screen x="0" y="27" width="1366" height="708" />
+    </state>
+    <state width="1320" height="161" key="GridCell.Tab.0.left/0.27.1366.708@0.27.1366.708" timestamp="1581240322056" />
+    <state width="1320" height="161" key="GridCell.Tab.0.right" timestamp="1581240322058">
+      <screen x="0" y="27" width="1366" height="708" />
+    </state>
+    <state width="1320" height="161" key="GridCell.Tab.0.right/0.27.1366.708@0.27.1366.708" timestamp="1581240322058" />
+    <state x="166" y="27" width="1024" height="708" key="SettingsEditor" timestamp="1581240305839">
+      <screen x="0" y="27" width="1366" height="708" />
+    </state>
+    <state x="166" y="27" width="1024" height="708" key="SettingsEditor/0.27.1366.708@0.27.1366.708" timestamp="1581240305839" />
+    <state x="4" y="27" width="1347" height="708" key="new project wizard" timestamp="1581239427186">
+      <screen x="0" y="27" width="1366" height="708" />
+    </state>
+    <state x="4" y="27" width="1347" height="708" key="new project wizard/0.27.1366.708@0.27.1366.708" timestamp="1581239427186" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

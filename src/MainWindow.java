@@ -16,8 +16,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
-
 public class MainWindow extends JFrame{
     private JButton button1;
     private JPanel panel1;
