@@ -6,7 +6,21 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33bdab02-bf3a-4a1c-b523-8e61d83e9532" name="Default Changelist" comment="" />
+    <list default="true" id="33bdab02-bf3a-4a1c-b523-8e61d83e9532" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/test_jar/test.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/test_jar/test.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/MainWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/MainWindow$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/MainWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/MainWindow$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/MainWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,29 +36,27 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>s</find>
-    </findStrings>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2211" />
-    <option name="width" value="1390" />
-    <option name="height" value="994" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XZ282cPjmc9UQlxlUHWbIHZXgZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="test" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib/ooxml-lib/xmlbeans-3.1.0.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/lib/sqlite-jdbc-3.7.2.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -97,30 +109,30 @@
       <screen x="0" y="27" width="1366" height="708" />
     </state>
     <state x="511" y="95" width="661" height="579" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.27.1366.708@0.27.1366.708" timestamp="1581240304110" />
-    <state x="243" y="182" width="884" height="526" key="FileChooserDialogImpl" timestamp="1581240299933">
+    <state x="243" y="182" width="884" height="526" key="FileChooserDialogImpl" timestamp="1581240571550">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state x="243" y="182" width="884" height="526" key="FileChooserDialogImpl/0.27.1366.708@0.27.1366.708" timestamp="1581240299933" />
-    <state width="1320" height="161" key="GridCell.Tab.0.bottom" timestamp="1581240322059">
+    <state x="243" y="182" width="884" height="526" key="FileChooserDialogImpl/0.27.1366.708@0.27.1366.708" timestamp="1581240571550" />
+    <state width="1320" height="161" key="GridCell.Tab.0.bottom" timestamp="1581438364585">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state width="1320" height="161" key="GridCell.Tab.0.bottom/0.27.1366.708@0.27.1366.708" timestamp="1581240322059" />
-    <state width="1320" height="161" key="GridCell.Tab.0.center" timestamp="1581240322058">
+    <state width="1320" height="161" key="GridCell.Tab.0.bottom/0.27.1366.708@0.27.1366.708" timestamp="1581438364585" />
+    <state width="1320" height="161" key="GridCell.Tab.0.center" timestamp="1581438364584">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state width="1320" height="161" key="GridCell.Tab.0.center/0.27.1366.708@0.27.1366.708" timestamp="1581240322058" />
-    <state width="1320" height="161" key="GridCell.Tab.0.left" timestamp="1581240322056">
+    <state width="1320" height="161" key="GridCell.Tab.0.center/0.27.1366.708@0.27.1366.708" timestamp="1581438364584" />
+    <state width="1320" height="161" key="GridCell.Tab.0.left" timestamp="1581438364583">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state width="1320" height="161" key="GridCell.Tab.0.left/0.27.1366.708@0.27.1366.708" timestamp="1581240322056" />
-    <state width="1320" height="161" key="GridCell.Tab.0.right" timestamp="1581240322058">
+    <state width="1320" height="161" key="GridCell.Tab.0.left/0.27.1366.708@0.27.1366.708" timestamp="1581438364583" />
+    <state width="1320" height="161" key="GridCell.Tab.0.right" timestamp="1581438364584">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state width="1320" height="161" key="GridCell.Tab.0.right/0.27.1366.708@0.27.1366.708" timestamp="1581240322058" />
-    <state x="166" y="27" width="1024" height="708" key="SettingsEditor" timestamp="1581240305839">
+    <state width="1320" height="161" key="GridCell.Tab.0.right/0.27.1366.708@0.27.1366.708" timestamp="1581438364584" />
+    <state x="166" y="27" width="1024" height="708" key="SettingsEditor" timestamp="1581240578999">
       <screen x="0" y="27" width="1366" height="708" />
     </state>
-    <state x="166" y="27" width="1024" height="708" key="SettingsEditor/0.27.1366.708@0.27.1366.708" timestamp="1581240305839" />
+    <state x="166" y="27" width="1024" height="708" key="SettingsEditor/0.27.1366.708@0.27.1366.708" timestamp="1581240578999" />
     <state x="4" y="27" width="1347" height="708" key="new project wizard" timestamp="1581239427186">
       <screen x="0" y="27" width="1366" height="708" />
     </state>

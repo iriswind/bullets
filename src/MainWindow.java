@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class MainWindow extends JFrame{
     private JButton button1;
@@ -32,7 +34,9 @@ public class MainWindow extends JFrame{
     private JLabel res;
     public static String keep = "";
 
+
     public MainWindow() {
+
 
         this.getContentPane().add(panel1);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +65,15 @@ public class MainWindow extends JFrame{
                         XSSFRow row = sheet.getRow(1);
                         XSSFCell cell = row.getCell(1);
                         System.out.println(cell.getStringCellValue());
+                        try {
+                            db dbH = db.getInstance();
+                            List<Person> persons = dbH.getAllPersons();
+                            for (Person person : persons) {
+                                System.out.println(person.toString());
+                            }
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                     }
                     catch(IOException e) {
                         e.printStackTrace();
