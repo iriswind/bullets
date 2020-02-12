@@ -5,7 +5,7 @@ import java.util.*;
 
 public class db {
 
-    private static final String CON_STR = "jdbc:sqlite:/home/iris/tmp/bullets.db";
+    private static final String CON_STR = "jdbc:sqlite:bullets.db";
     private static db instance = null;
     public static synchronized db getInstance() throws SQLException {
         if (instance == null)
