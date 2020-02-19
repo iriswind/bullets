@@ -22,7 +22,6 @@ public class MainWindow extends JFrame{
     private JButton button1;
     private JPanel panel1;
     private JLabel label1;
-    private JTextField Cname;
     private JTextField Cdate;
     private JTextField Csecr;
     private JTextField Cjudge;
@@ -32,6 +31,9 @@ public class MainWindow extends JFrame{
     private JLabel Ljudge;
     private JButton gen;
     private JLabel res;
+    private JComboBox Cname;
+    private JButton выбратьКатегорииButton;
+    private JButton редактироватьСписокСоревнованийButton;
     public static String keep = "";
 
 

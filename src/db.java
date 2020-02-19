@@ -40,4 +40,21 @@ public class db {
                 return Collections.emptyList();
             }
         }
+    public List<Competition> getAllCompetitions() {
+        try (Statement statement = this.connection.createStatement()) {
+            List<Competition> competitions = new ArrayList<Competition>();
+            ResultSet resultSet = statement.executeQuery("SELECT id, title, location, c_date FROM COMPETITION");
+            while (resultSet.next()) {
+                competitions.add(new Competition(resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getString("location"),
+                        resultSet.getDate("c_date")));
+            }
+            return competitions;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return Collections.emptyList();
+        }
+        }
     }
