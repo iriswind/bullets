@@ -116,7 +116,7 @@
               <text value="Категории не заданы"/>
             </properties>
           </component>
-          <component id="2c220" class="javax.swing.JButton" binding="выбратьКатегорииButton" default-binding="true">
+          <component id="2c220" class="javax.swing.JButton" binding="sel_discp">
             <constraints>
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -148,7 +148,7 @@
               <model/>
             </properties>
           </component>
-          <component id="23bc8" class="javax.swing.JButton" binding="редактироватьСписокСоревнованийButton" default-binding="true">
+          <component id="23bc8" class="javax.swing.JButton" binding="red_comp">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

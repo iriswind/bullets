@@ -32,8 +32,8 @@ public class MainWindow extends JFrame{
     private JButton gen;
     private JLabel res;
     private JComboBox Cname;
-    private JButton выбратьКатегорииButton;
-    private JButton редактироватьСписокСоревнованийButton;
+    private JButton sel_discp;
+    private JButton red_comp;
     public static String keep = "";
 
 
@@ -43,6 +43,16 @@ public class MainWindow extends JFrame{
         this.getContentPane().add(panel1);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Cname.setVisible(true);
+        try {
+            db dbH = db.getInstance();
+            List<Competition> competitions = dbH.getAllCompetitions();
+            for (Competition competition : competitions) {
+                Cname.addItem(competition.toString());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
