@@ -48,7 +48,7 @@ public class db {
                 competitions.add(new Competition(resultSet.getInt("id"),
                         resultSet.getString("title"),
                         resultSet.getString("location"),
-                        resultSet.getDate("c_date")));
+                        resultSet.getString("c_date")));
             }
             return competitions;
         } catch (SQLException e) {
@@ -57,4 +57,31 @@ public class db {
             return Collections.emptyList();
         }
         }
+    public void updCompetitions(Competition competition) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "UPDATE COMPETITION SET TITLE=?,LOCATION=?,C_DATE=? WHERE ID=?")) {
+            statement.setObject(1, competition.title);
+            statement.setObject(2, competition.location);
+            statement.setObject(3, competition.c_date);
+            statement.setObject(4, competition.id);
+            // Выполняем запрос
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+    public void addCompetitions(Competition competition) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "INSERT INTO COMPETITION(TITLE,LOCATION,C_DATE) VALUES(?,?,?)")) {
+            statement.setObject(1, competition.title);
+            statement.setObject(2, competition.location);
+            statement.setObject(3, competition.c_date);
+            // Выполняем запрос
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
