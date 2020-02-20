@@ -21,6 +21,7 @@ import java.util.List;
 public class MainWindow extends JFrame{
     private JButton button1;
     private JPanel panel1;
+    private JPanel pn1;
     private JLabel label1;
     private JTextField Cdate;
     private JTextField Csecr;
@@ -96,6 +97,14 @@ public class MainWindow extends JFrame{
                 }
 
 
+            }
+        });
+        red_comp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Comptl window = new Comptl();
+                window.pack();
+                window.setVisible(true);
             }
         });
     }

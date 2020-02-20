@@ -26,7 +26,7 @@ public class Competition {
     // Выводим информацию по продукту
     @Override
     public String toString() {
-        return String.format("ID: %s | Мероприятие: %s | Место проведения: %s | Дата: %s",
-                this.id, this.title, this.location, this.c_date);
+        return String.format("Мероприятие: %s | Место проведения: %s | Дата: %s",
+                this.title, this.location, this.c_date);
     }
 }

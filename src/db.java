@@ -26,7 +26,7 @@ public class db {
     public List<Person> getAllPersons() {
             try (Statement statement = this.connection.createStatement()) {
                 List<Person> persons = new ArrayList<Person>();
-            ResultSet resultSet = statement.executeQuery("SELECT id_man, name, club, kyu_level FROM competition");
+            ResultSet resultSet = statement.executeQuery("SELECT id_man, name, club, kyu_level FROM competition ORDER BY id_man");
             while (resultSet.next()) {
                 persons.add(new Person(resultSet.getInt("id_man"),
                             resultSet.getString("name"),
@@ -43,7 +43,7 @@ public class db {
     public List<Competition> getAllCompetitions() {
         try (Statement statement = this.connection.createStatement()) {
             List<Competition> competitions = new ArrayList<Competition>();
-            ResultSet resultSet = statement.executeQuery("SELECT id, title, location, c_date FROM COMPETITION");
+            ResultSet resultSet = statement.executeQuery("SELECT id, title, location, c_date FROM COMPETITION ORDER BY ID");
             while (resultSet.next()) {
                 competitions.add(new Competition(resultSet.getInt("id"),
                         resultSet.getString("title"),
