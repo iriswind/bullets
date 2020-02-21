@@ -23,16 +23,17 @@ public class Comptl extends JFrame{
     private JLabel addlb;
     private JLabel updlb;
     private JLabel idlb;
+    private JButton close;
 
     public Comptl() {
         this.getContentPane().add(panel1);
         idlb.setVisible(false);
         setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        DefaultListModel listModel = new DefaultListModel ();
+        complist.setModel(listModel);
         try {
             db dbH = db.getInstance();
             List<Competition> competitions = dbH.getAllCompetitions();
-            DefaultListModel listModel = new DefaultListModel ();
-            complist.setModel(listModel);
             for (Competition competition : competitions) {
                 listModel.addElement(competition.toString());
                 }
@@ -74,6 +75,7 @@ public class Comptl extends JFrame{
                                                         db dbH = db.getInstance();
                                                         dbH.updCompetitions(cmp);
                                                         updlb.setText("Запись обновлена");
+                                                        listModel.setElementAt(Integer.parseInt(idlb.getText()) + " | Мероприятие: " + title.getText().trim() +" | Место проведения: " + location.getText().trim() + " | Дата: " + c_date.getText().trim(),complist.getSelectedIndex());
                                                         }
                                                     catch (SQLException e) {e.printStackTrace();}
                                                     }
@@ -104,6 +106,8 @@ public class Comptl extends JFrame{
                                             db dbH = db.getInstance();
                                             dbH.addCompetitions(cmp);
                                             addlb.setText("Запись добавлена");
+                                            Integer cn=listModel.size()+1;
+                                            listModel.addElement(cn + " | Мероприятие: " + title.getText().trim() +" | Место проведения: " + location.getText().trim() + " | Дата: " + c_date.getText().trim());
                                         }
                                         catch (SQLException e) {e.printStackTrace();}
                                     }
@@ -113,5 +117,11 @@ public class Comptl extends JFrame{
                     }
                 }
          );
+        close.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 }

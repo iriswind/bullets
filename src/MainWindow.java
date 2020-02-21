@@ -11,6 +11,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
+
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,11 +35,10 @@ public class MainWindow extends JFrame{
     private JLabel Ljudge;
     private JButton gen;
     private JLabel res;
-    private JComboBox Cname;
+    public JComboBox Cname;
     private JButton sel_discp;
     private JButton red_comp;
     public static String keep = "";
-
 
     public MainWindow() {
 
@@ -47,8 +49,10 @@ public class MainWindow extends JFrame{
         try {
             db dbH = db.getInstance();
             List<Competition> competitions = dbH.getAllCompetitions();
+            DefaultComboBoxModel clist=new DefaultComboBoxModel();
+            Cname.setModel(clist);
             for (Competition competition : competitions) {
-                Cname.addItem(competition.toString());
+                clist.addElement(competition.toString());
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,6 +109,23 @@ public class MainWindow extends JFrame{
                 Comptl window = new Comptl();
                 window.pack();
                 window.setVisible(true);
+            }
+        });
+        Cname.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                try {
+                    db dbH = db.getInstance();
+                    List<Competition> competitions = dbH.getAllCompetitions();
+                    DefaultComboBoxModel clist=new DefaultComboBoxModel();
+                    Cname.setModel(clist);
+                    for (Competition competition : competitions) {
+                        clist.addElement(competition.toString());
+                    }
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }
