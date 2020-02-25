@@ -7,20 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33bdab02-bf3a-4a1c-b523-8e61d83e9532" name="Default Changelist" comment="asd">
+      <change afterPath="$PROJECT_DIR$/src/Discipline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Discp.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Discp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bullets.db" beforeDir="false" afterPath="$PROJECT_DIR$/bullets.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/test_jar/test.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/test_jar/test.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test/Comptl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/Comptl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test/Comptl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/Comptl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test/Comptl$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/Comptl$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/Comptl$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/Comptl$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/test/Comptl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/Comptl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test/MainWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/MainWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test/MainWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/MainWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/test/MainWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/MainWindow$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/META-INF/test.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/META-INF/test.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/test/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/MainWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Comptl.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comptl.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Comptl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Comptl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/db.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/db.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,17 +41,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/db.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="28" column="127" selection-start-line="28" selection-start-column="127" selection-end-line="28" selection-end-column="127" />
+            <state relative-caret-position="88">
+              <caret line="59" column="26" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="26" />
+              <folding>
+                <element signature="e#2600#2612#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Person.java">
+        <entry file="file://$PROJECT_DIR$/src/Discipline.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="60">
+              <caret line="4" column="25" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -61,20 +64,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="30" column="104" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="104" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4122#4806#0" expanded="true" />
-                <element signature="e#4805#4806#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -93,6 +82,58 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4122#4806#0" expanded="true" />
+                <element signature="e#4805#4806#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Comptl.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Comptl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6583#6584#0" expanded="true" />
+                <element signature="e#6624#6625#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Discp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1352#1353#0" expanded="true" />
+                <element signature="e#1393#1394#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Discp.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -108,6 +149,7 @@
       <find>pers</find>
       <find>pn1</find>
       <find>dbH</find>
+      <find>panel1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,8 +159,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Comptl.form" />
-        <option value="$PROJECT_DIR$/src/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/Comptl.java" />
+        <option value="$PROJECT_DIR$/src/MainWindow.form" />
+        <option value="$PROJECT_DIR$/src/discp.form" />
+        <option value="$PROJECT_DIR$/src/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/discp.java" />
+        <option value="$PROJECT_DIR$/src/Discp.form" />
+        <option value="$PROJECT_DIR$/src/Discipline.java" />
+        <option value="$PROJECT_DIR$/src/db.java" />
+        <option value="$PROJECT_DIR$/src/Discp.java" />
       </list>
     </option>
   </component>
@@ -234,16 +283,16 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48078975" visible="true" weight="0.3295583" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4994664" weight="0.3295583" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4765208" weight="0.3295583" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49893278" weight="0.3997735" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4994664" weight="0.3295583" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.3295583" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5192102" side_tool="true" visible="true" weight="0.3295583" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.55709714" side_tool="true" visible="true" weight="0.3295583" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4994664" weight="0.3295583" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.44983992" weight="0.3295583" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.4429029" visible="true" weight="0.3295583" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -313,33 +362,47 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/db.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="127" selection-start-line="28" selection-start-column="127" selection-end-line="28" selection-end-column="127" />
+        <state relative-caret-position="75">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/discp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/discp.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="390">
+          <caret line="26" column="68" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Comptl.java">
+    <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="385">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6583#6584#0" expanded="true" />
+            <element signature="e#4122#4806#0" expanded="true" />
+            <element signature="e#4805#4806#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Comptl.form">
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Competition.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -348,24 +411,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Comptl.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Discipline.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        <state relative-caret-position="60">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/Discp.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
+        <state relative-caret-position="88">
+          <caret line="59" column="26" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="26" />
+          <folding>
+            <element signature="e#2600#2612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Comptl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4122#4806#0" expanded="true" />
-            <element signature="e#4805#4806#0" expanded="true" />
+            <element signature="e#6583#6584#0" expanded="true" />
+            <element signature="e#6624#6625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Discp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
           </folding>
         </state>
       </provider>

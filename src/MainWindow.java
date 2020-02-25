@@ -128,6 +128,14 @@ public class MainWindow extends JFrame{
                 }
             }
         });
+        sel_discp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Discp window = new Discp();
+                window.pack();
+                window.setVisible(true);
+            }
+        });
     }
 
 }

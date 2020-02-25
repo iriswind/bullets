@@ -57,6 +57,23 @@ public class db {
             return Collections.emptyList();
         }
         }
+    public List<Discipline> getAllDisciplines() {
+        try (Statement statement = this.connection.createStatement()) {
+            List<Discipline> discipline = new ArrayList<Discipline>();
+            ResultSet resultSet = statement.executeQuery("SELECT DISCP_GROUP,AGE_LOW,AGE_HIGH,WEIGHT FROM DISCIPLINES ORDER BY ID");
+            while (resultSet.next()) {
+                discipline.add(new Discipline(resultSet.getString("discp_group"),
+                        resultSet.getInt("age_low"),
+                        resultSet.getInt("age_high"),
+                        resultSet.getInt("weight")));
+            }
+            return discipline;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return Collections.emptyList();
+        }
+    }
     public void updCompetitions(Competition competition) {
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
         try (PreparedStatement statement = this.connection.prepareStatement(
@@ -84,4 +101,20 @@ public class db {
             e.printStackTrace();
         }
     }
+    public void addDiscipline(Discipline discipline) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "INSERT INTO DISCIPLINES(DISCP_GROUP,AGE_LOW,AGE_HIGH,WEIGHT) VALUES(?,?,?,?)")) {
+            statement.setObject(1, discipline.discp_group);
+            statement.setObject(2, discipline.age_low);
+            statement.setObject(3, discipline.age_high);
+            statement.setObject(4, discipline.weight);
+            // Выполняем запрос
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
