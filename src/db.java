@@ -60,9 +60,11 @@ public class db {
     public List<Discipline> getAllDisciplines() {
         try (Statement statement = this.connection.createStatement()) {
             List<Discipline> discipline = new ArrayList<Discipline>();
-            ResultSet resultSet = statement.executeQuery("SELECT DISCP_GROUP,AGE_LOW,AGE_HIGH,WEIGHT FROM DISCIPLINES ORDER BY ID");
+            ResultSet resultSet = statement.executeQuery("SELECT ID,DISCP_GROUP,AGE_LOW,AGE_HIGH,WEIGHT FROM DISCIPLINES ORDER BY DISCP_GROUP,AGE_LOW,AGE_HIGH,WEIGHT");
             while (resultSet.next()) {
-                discipline.add(new Discipline(resultSet.getString("discp_group"),
+                discipline.add(new Discipline(
+                        resultSet.getInt("id"),
+                        resultSet.getString("discp_group"),
                         resultSet.getInt("age_low"),
                         resultSet.getInt("age_high"),
                         resultSet.getInt("weight")));
