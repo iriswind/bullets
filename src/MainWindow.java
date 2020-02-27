@@ -39,6 +39,9 @@ public class MainWindow extends JFrame{
     private JButton sel_discp;
     private JButton red_comp;
     public static String keep = "";
+    public List<Competition> m_competitions;
+    public List<Competition> competitions;
+
 
     public MainWindow() {
 
@@ -48,11 +51,11 @@ public class MainWindow extends JFrame{
         Cname.setVisible(true);
         try {
             db dbH = db.getInstance();
-            List<Competition> competitions = dbH.getAllCompetitions();
+            this.competitions = dbH.getAllCompetitions();
             DefaultComboBoxModel clist=new DefaultComboBoxModel();
             Cname.setModel(clist);
             for (Competition competition : competitions) {
-                clist.addElement(competition.toString());
+                clist.addElement(competition.full_name);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -117,11 +120,11 @@ public class MainWindow extends JFrame{
                 super.focusGained(e);
                 try {
                     db dbH = db.getInstance();
-                    List<Competition> competitions = dbH.getAllCompetitions();
+                    competitions = dbH.getAllCompetitions();
                     DefaultComboBoxModel clist=new DefaultComboBoxModel();
                     Cname.setModel(clist);
                     for (Competition competition : competitions) {
-                        clist.addElement(competition.toString());
+                        clist.addElement(competition.full_name);
                     }
                 } catch (SQLException e1) {
                     e1.printStackTrace();

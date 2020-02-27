@@ -43,12 +43,14 @@ public class db {
     public List<Competition> getAllCompetitions() {
         try (Statement statement = this.connection.createStatement()) {
             List<Competition> competitions = new ArrayList<Competition>();
-            ResultSet resultSet = statement.executeQuery("SELECT id, title, location, c_date FROM COMPETITION ORDER BY ID");
+            ResultSet resultSet = statement.executeQuery("SELECT ID, TITLE, LOCATION, C_DATE FROM COMPETITION ORDER BY C_DATE");
             while (resultSet.next()) {
-                competitions.add(new Competition(resultSet.getInt("id"),
-                        resultSet.getString("title"),
-                        resultSet.getString("location"),
-                        resultSet.getString("c_date")));
+                Integer id=resultSet.getInt("id");
+                String title=resultSet.getString("title");
+                String location=resultSet.getString("location");
+                String c_date=resultSet.getString("c_date");
+                String full_name=c_date + " " + title +", " + location;
+                competitions.add(new Competition(id,title,location,c_date,full_name));
             }
             return competitions;
         } catch (SQLException e) {
@@ -62,12 +64,25 @@ public class db {
             List<Discipline> discipline = new ArrayList<Discipline>();
             ResultSet resultSet = statement.executeQuery("SELECT ID,DISCP_GROUP,AGE_LOW,AGE_HIGH,WEIGHT FROM DISCIPLINES ORDER BY DISCP_GROUP,AGE_LOW,AGE_HIGH,WEIGHT");
             while (resultSet.next()) {
-                discipline.add(new Discipline(
-                        resultSet.getInt("id"),
-                        resultSet.getString("discp_group"),
-                        resultSet.getInt("age_low"),
-                        resultSet.getInt("age_high"),
-                        resultSet.getInt("weight")));
+                Integer id = resultSet.getInt("id");
+                String discp_group=resultSet.getString("discp_group");
+                Integer age_low=resultSet.getInt("age_low");
+                Integer age_high=resultSet.getInt("age_high");
+                Integer weight=resultSet.getInt("weight");
+                String full_name=discp_group;
+                if (age_low == age_high)
+                    {
+                        full_name = full_name + " " + age_low.toString() + Utils.getstrage(age_low);
+                    }
+                else
+                    {
+                        full_name = full_name + " " + age_low.toString() + "-" + age_high.toString() + Utils.getstrage(age_high);
+                    }
+                if (discp_group.toLowerCase().equals("кумитэ"))
+                    {
+                        full_name = full_name + " " + weight.toString() + "кг";
+                    }
+                discipline.add(new Discipline(id,discp_group,age_low,age_high,weight,full_name));
             }
             return discipline;
         } catch (SQLException e) {
@@ -118,5 +133,20 @@ public class db {
             e.printStackTrace();
         }
     }
+    public void updDiscipline(Discipline discipline) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
 
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "UPDATE DISCIPLINES SET DISCP_GROUP=?, AGE_LOW=?, AGE_HIGH=?, WEIGHT=? WHERE ID=?")) {
+            statement.setObject(1, discipline.discp_group);
+            statement.setObject(2, discipline.age_low);
+            statement.setObject(3, discipline.age_high);
+            statement.setObject(4, discipline.weight);
+            statement.setObject(5, discipline.id);
+            // Выполняем запрос
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
