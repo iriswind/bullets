@@ -142,6 +142,18 @@ public class db {
             return Collections.emptyList();
         }
     }
+    public Integer getmaxidRequest() {
+        try (Statement statement = this.connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("SELECT MAX(ID_MAN) AS ID_MAN  FROM REQUEST");
+            resultSet.next();
+            return resultSet.getInt("ID_MAN");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return null;
+        }
+    }
+
     public void updCompetitions(Competition competition) {
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
         try (PreparedStatement statement = this.connection.prepareStatement(
@@ -227,9 +239,8 @@ public class db {
             e.printStackTrace();
         }
     }
-    public Integer addRequest(Request request) {
+    public void addRequest(Request request){
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
-
         try {
             PreparedStatement statement = this.connection.prepareStatement(
                 "INSERT INTO REQUEST(ID, FIO, CLUB, BIRTH_DATE, KYU_LEVEL, WEIGHT, KUMITE, KATA, TRAINER) VALUES(?,?,?,?,?,?,?,?,?)");
@@ -244,15 +255,9 @@ public class db {
                 statement.setObject(9, request.trainer);
                 // Выполняем запрос
                 statement.execute();
-                Statement statement1 = this.connection.createStatement();
-                ResultSet resultSet = statement1.executeQuery("SELECT MAX(ID_MAN) AS ID_MAN  FROM REQUEST");
-                resultSet.next();
-                Integer idm = resultSet.getInt("ID_MAN");
-                return idm;
             }
          catch (SQLException e) {
             e.printStackTrace();
-            return null;
         }
     }
     public void updRequest(Request request) {
@@ -270,6 +275,20 @@ public class db {
             statement.setObject(7, request.kata);
             statement.setObject(8, request.trainer);
             statement.setObject(9, request.id);
+            // Выполняем запрос
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void delRequest(Integer id) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(
+                    "DELETE FROM REQUEST WHERE ID_MAN=?");
+            statement.setObject(1, id);
             // Выполняем запрос
             statement.execute();
         }

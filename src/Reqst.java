@@ -36,7 +36,7 @@ public class Reqst extends JFrame{
     public Reqst(Competition comp){
         this.comp=comp;
         this.getContentPane().add(panel1);
-        panel1.setPreferredSize(new Dimension(600, 300));
+        panel1.setPreferredSize(new Dimension(800, 500));
         complb.setText(comp.full_name);
         try
         {
@@ -124,7 +124,7 @@ public class Reqst extends JFrame{
                                                                 Integer wght=Integer.parseInt(r_weight.getText().trim());
                                                                 String kata="false";
                                                                 String kumite="false";
-                                                                if (!(r_kata.isSelected() && !(r_kumite.isSelected())))
+                                                                if (!((r_kata.isSelected() | (r_kumite.isSelected()))))
                                                                     {
                                                                         addlb.setText("Отметьте группу дисциплин");
                                                                     }
@@ -138,12 +138,12 @@ public class Reqst extends JFrame{
                                                                         {
                                                                             kumite="true";
                                                                         }
-                                                                        Request req = new Request(comp.id,requests.size()+1,fio,club,rdate,lvl,wght,kata,kumite,trainer);
                                                                         try {
                                                                             db dbH = db.getInstance();
-                                                                            Integer idm=dbH.addRequest(req);
+                                                                            Integer idm=dbH.getmaxidRequest();
+                                                                            Request req = new Request(idm,comp.id,fio,club,rdate,lvl,wght,kata,kumite,trainer);
+                                                                            dbH.addRequest(req);
                                                                             addlb.setText("Запись добавлена");
-                                                                            req.id=idm;
                                                                             requests.add(req);
                                                                             listModel.addElement(fio);
                                                                         } catch (SQLException e1) {
@@ -163,51 +163,52 @@ public class Reqst extends JFrame{
         upd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Integer idx=rlist.getSelectedIndex();
                 if (r_fio.getText().trim().length() == 0)
                 {
                     addlb.setText("Укажите ФИО спортсмена");
                 }
                 else
                 {
-                    String fio=r_fio.getText().trim();
+                    requests.get(idx).fio=r_fio.getText().trim();
                     if ((r_date.getText().trim().length() == 0) || !(Utils.isValid(r_date.getText().trim())))
                     {
                         addlb.setText("Укажите дату рождения спортсмена");
                     }
                     else
                     {
-                        String rdate=r_date.getText().trim();
+                        requests.get(idx).r_date=r_date.getText().trim();
                         if (r_club.getText().trim().length() == 0)
                         {
                             addlb.setText("Укажите клуб спортсмена");
                         }
                         else
                         {
-                            String club=r_club.getText().trim();
+                            requests.get(idx).club=r_club.getText().trim();
                             if (r_trainer.getText().trim().length() == 0)
                             {
                                 addlb.setText("Укажите тренера спортсмена");
                             }
                             else
                             {
-                                String trainer=r_trainer.getText().trim();
+                                requests.get(idx).trainer=r_trainer.getText().trim();
                                 if (r_level.getText().trim().length() == 0)
                                 {
                                     addlb.setText("Укажите кю/дан спортсмена");
                                 }
                                 else
                                 {
-                                    String lvl=r_level.getText().trim();
+                                    requests.get(idx).level=r_level.getText().trim();
                                     if (r_weight.getText().trim().length() == 0)
                                     {
                                         addlb.setText("Укажите вес спортсмена");
                                     }
                                     else
                                     {
-                                        Integer wght=Integer.parseInt(r_weight.getText().trim());
+                                        requests.get(idx).weight=Integer.parseInt(r_weight.getText().trim());
                                         String kata="false";
                                         String kumite="false";
-                                        if (!(r_kata.isSelected() && !(r_kumite.isSelected())))
+                                        if (!((r_kata.isSelected() | (r_kumite.isSelected()))))
                                         {
                                             addlb.setText("Отметьте группу дисциплин");
                                         }
@@ -215,20 +216,17 @@ public class Reqst extends JFrame{
                                         {
                                             if (r_kata.isSelected())
                                             {
-                                                kata="true";
+                                                requests.get(idx).kata="true";
                                             }
                                             if (r_kumite.isSelected())
                                             {
-                                                kumite="true";
+                                                requests.get(idx).kumite="true";
                                             }
-                                            Request req = new Request(comp.id,requests.size()+1,fio,club,rdate,lvl,wght,kata,kumite,trainer);
                                             try {
                                                 db dbH = db.getInstance();
-                                                Integer idm=dbH.addRequest(req);
-                                                addlb.setText("Запись добавлена");
-                                                req.id=idm;
-                                                requests.add(req);
-                                                listModel.addElement(fio);
+                                                dbH.updRequest(requests.get(idx));
+                                                addlb.setText("Запись обновлена");
+                                                listModel.setElementAt(requests.get(idx).fio,idx);
                                             } catch (SQLException e1) {
                                                 e1.printStackTrace();
                                             }
@@ -241,6 +239,32 @@ public class Reqst extends JFrame{
                 }
 
 
+            }
+        });
+        del.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Integer idx=rlist.getSelectedIndex();
+                try {
+                    db dbH = db.getInstance();
+                    dbH.delRequest(requests.get(idx).id);
+                    addlb.setText("Запись удалена");
+                    requests=dbH.getRequest(comp.id);
+                    listModel.removeAll();
+                    for (Request request : requests)
+                    {
+                        listModel.addElement(request.fio);
+                    }
+                    rlist.setModel(listModel);
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        close.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
             }
         });
     }
