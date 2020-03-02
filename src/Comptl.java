@@ -26,26 +26,20 @@ public class Comptl extends JFrame{
     private JLabel updlb;
     private JLabel idlb;
     private JButton close;
+    private DefaultListModel listModel;
     private List<Competition> competitions;
+    private DefaultComboBoxModel clist;
 
-    public Comptl() {
+
+    public Comptl(List<Competition> competitions,DefaultListModel listModel,DefaultComboBoxModel clist) {
+        this.competitions=competitions;
+        this.listModel=listModel;
+        this.clist=clist;
         this.getContentPane().add(panel1);
         panel1.setPreferredSize(new Dimension(600, 300));
         setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-        DefaultListModel listModel = new DefaultListModel ();
         complist.setModel(listModel);
-        try {
-            db dbH = db.getInstance();
-            this.competitions = dbH.getAllCompetitions();
-            for (Competition competition : competitions) {
-                listModel.addElement(competition.full_name);
-                }
-            }
-         catch (SQLException e) {
-            e.printStackTrace();
-        }
         complist.addListSelectionListener(new ListSelectionListener() {
-            String[] subStr;
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 Integer idx=complist.getSelectedIndex();
@@ -91,6 +85,7 @@ public class Comptl extends JFrame{
                                             addlb.setText("Запись добавлена");
                                             competitions.add(cmp);
                                             listModel.addElement(full_name);
+                                            clist.addElement(full_name);
                                             }
                                         catch (SQLException e)
                                             {
@@ -141,6 +136,8 @@ public class Comptl extends JFrame{
                                                         dbH.updCompetitions(competitions.get(idx));
                                                         updlb.setText("Запись обновлена");
                                                         listModel.setElementAt(full_name,idx);
+                                                        clist.removeElementAt(idx);
+                                                        clist.insertElementAt(full_name,idx);
                                                         }
                                                     catch (SQLException e) {e.printStackTrace();}
                                                     }

@@ -91,6 +91,57 @@ public class db {
             return Collections.emptyList();
         }
     }
+    public List<Orgperson> getAllOrgPersons() {
+        try (Statement statement = this.connection.createStatement()) {
+            List<Orgperson> orgpersons = new ArrayList<Orgperson>();
+            ResultSet resultSet = statement.executeQuery("SELECT ID, FIO, LEVEL, CATEGORY FROM ORGPERSONS ORDER BY ID");
+            while (resultSet.next()) {
+                Integer id=resultSet.getInt("ID");
+                String fio=resultSet.getString("FIO");
+                String level=resultSet.getString("LEVEL");
+                String category=resultSet.getString("CATEGORY");
+                String full_name=fio;
+                if (level.length()>0)
+                    {
+                        full_name = full_name +", "+level;
+                    }
+                if (category.length()>0)
+                {
+                    full_name = full_name +", "+category;
+                }
+                orgpersons.add(new Orgperson(id,fio,level,category,full_name));
+            }
+            return orgpersons;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return Collections.emptyList();
+        }
+    }
+    public List<Request> getRequest(Integer id) {
+        try (Statement statement = this.connection.createStatement()) {
+            List<Request> requests = new ArrayList<Request>();
+            ResultSet resultSet = statement.executeQuery("SELECT ID_MAN, ID, FIO, CLUB, BIRTH_DATE, KYU_LEVEL, WEIGHT, KUMITE, KATA, TRAINER FROM REQUEST WHERE ID="+id.toString());
+            while (resultSet.next()) {
+                Integer idm=resultSet.getInt("ID_MAN");
+                Integer id_comp=resultSet.getInt("ID");
+                String fio=resultSet.getString("FIO");
+                String club=resultSet.getString("CLUB");
+                String rdate=resultSet.getString("BIRTH_DATE");
+                String level=resultSet.getString("KYU_LEVEL");
+                Integer weight=resultSet.getInt("WEIGHT");
+                String kata=resultSet.getString("KATA");
+                String kumite=resultSet.getString("KUMITE");
+                String trainer=resultSet.getString("TRAINER");
+                requests.add(new Request(idm,id_comp,fio,club,rdate,level,weight,kata,kumite,trainer));
+            }
+            return requests;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return Collections.emptyList();
+        }
+    }
     public void updCompetitions(Competition competition) {
         // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
         try (PreparedStatement statement = this.connection.prepareStatement(
@@ -149,4 +200,97 @@ public class db {
             e.printStackTrace();
         }
     }
+    public void updOrgpersons(Orgperson orgperson) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "UPDATE ORGPERSONS SET FIO=?,LEVEL=?,CATEGORY=? WHERE ID=?")) {
+            statement.setObject(1, orgperson.fio);
+            statement.setObject(2, orgperson.level);
+            statement.setObject(3, orgperson.jcategory);
+            statement.setObject(4, orgperson.id);
+            // Выполняем запрос
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void addOrgpersons(Orgperson orgperson) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "INSERT INTO ORGPERSONS(FIO,LEVEL,CATEGORY) VALUES(?,?,?)")) {
+            statement.setObject(1, orgperson.fio);
+            statement.setObject(2, orgperson.level);
+            statement.setObject(3, orgperson.jcategory);
+            // Выполняем запрос
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public Integer addRequest(Request request) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(
+                "INSERT INTO REQUEST(ID, FIO, CLUB, BIRTH_DATE, KYU_LEVEL, WEIGHT, KUMITE, KATA, TRAINER) VALUES(?,?,?,?,?,?,?,?,?)");
+                statement.setObject(1, request.id_comp);
+                statement.setObject(2, request.fio);
+                statement.setObject(3, request.club);
+                statement.setObject(4, request.r_date);
+                statement.setObject(5, request.level);
+                statement.setObject(6, request.weight);
+                statement.setObject(7, request.kumite);
+                statement.setObject(8, request.kata);
+                statement.setObject(9, request.trainer);
+                // Выполняем запрос
+                statement.execute();
+                Statement statement1 = this.connection.createStatement();
+                ResultSet resultSet = statement1.executeQuery("SELECT MAX(ID_MAN) AS ID_MAN  FROM REQUEST");
+                resultSet.next();
+                Integer idm = resultSet.getInt("ID_MAN");
+                return idm;
+            }
+         catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public void updRequest(Request request) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(
+                    "UPDATE REQUEST  SET FIO=?, CLUB=?, BIRTH_DATE=?, KYU_LEVEL=?, WEIGHT=?, KUMITE=?, KATA=?, TRAINER=? WHERE ID_MAN=?");
+            statement.setObject(1, request.fio);
+            statement.setObject(2, request.club);
+            statement.setObject(3, request.r_date);
+            statement.setObject(4, request.level);
+            statement.setObject(5, request.weight);
+            statement.setObject(6, request.kumite);
+            statement.setObject(7, request.kata);
+            statement.setObject(8, request.trainer);
+            statement.setObject(9, request.id);
+            // Выполняем запрос
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    /*public void updDiscipline(Discipline discipline) {
+        // Создадим подготовленное выражение, чтобы избежать SQL-инъекций
+
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "UPDATE DISCIPLINES SET DISCP_GROUP=?, AGE_LOW=?, AGE_HIGH=?, WEIGHT=? WHERE ID=?")) {
+            statement.setObject(1, discipline.discp_group);
+            statement.setObject(2, discipline.age_low);
+            statement.setObject(3, discipline.age_high);
+            statement.setObject(4, discipline.weight);
+            statement.setObject(5, discipline.id);
+            // Выполняем запрос
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
 }

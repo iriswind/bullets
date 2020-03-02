@@ -26,21 +26,31 @@ public class MainWindow extends JFrame{
     private JPanel panel1;
     private JPanel pn1;
     private JLabel label1;
-    private JTextField Cdate;
-    private JTextField Csecr;
-    private JTextField Cjudge;
     private JLabel Lname;
-    private JLabel Ldate;
     private JLabel Lsecr;
     private JLabel Ljudge;
     private JButton gen;
     private JLabel res;
-    public JComboBox Cname;
+    private JComboBox Cname;
     private JButton sel_discp;
     private JButton red_comp;
-    public static String keep = "";
-    public List<Competition> m_competitions;
-    public List<Competition> competitions;
+    private JList dicp_list;
+    private JComboBox mjudge;
+    private JComboBox secr;
+    private JButton org;
+    private JButton списокButton;
+    private JLabel catlb;
+    private String keep=""; //?
+    private List<Competition> competitions;
+    private List<Discipline> disciplines;
+    private List<Orgperson> orgpersons;
+    private DefaultComboBoxModel clistbox;
+    private DefaultComboBoxModel orglistbox;
+    private DefaultListModel clist;
+    private DefaultListModel dlist;
+    private DefaultListModel jlist;
+
+
 
 
     public MainWindow() {
@@ -52,14 +62,36 @@ public class MainWindow extends JFrame{
         try {
             db dbH = db.getInstance();
             this.competitions = dbH.getAllCompetitions();
-            DefaultComboBoxModel clist=new DefaultComboBoxModel();
-            Cname.setModel(clist);
-            for (Competition competition : competitions) {
-                clist.addElement(competition.full_name);
+            clistbox=new DefaultComboBoxModel();
+            clist=new DefaultListModel();
+            orglistbox=new DefaultComboBoxModel();
+            jlist=new DefaultListModel();
+            Cname.setModel(clistbox);
+            for (Competition competition : competitions)
+                {
+                    clist.addElement(competition.full_name);
+                    clistbox.addElement(competition.full_name);
+                }
+            this.disciplines = dbH.getAllDisciplines();
+            dlist=new DefaultListModel();
+            dicp_list.setModel(dlist);
+            for (Discipline discipline : disciplines)
+                {
+                    dlist.addElement(discipline.full_name);
+                }
+            this.orgpersons = dbH.getAllOrgPersons();
+            mjudge.setModel(orglistbox);
+            secr.setModel(orglistbox);
+            for (Orgperson orgperson : orgpersons)
+                {
+                    orglistbox.addElement(orgperson.full_name);
+                    jlist.addElement(orgperson.full_name);
+                }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
 
         button1.addActionListener(new ActionListener() {
             @Override
@@ -109,32 +141,32 @@ public class MainWindow extends JFrame{
         red_comp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Comptl window = new Comptl();
+                Comptl window = new Comptl(competitions,clist,clistbox);
                 window.pack();
                 window.setVisible(true);
-            }
-        });
-        Cname.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                super.focusGained(e);
-                try {
-                    db dbH = db.getInstance();
-                    competitions = dbH.getAllCompetitions();
-                    DefaultComboBoxModel clist=new DefaultComboBoxModel();
-                    Cname.setModel(clist);
-                    for (Competition competition : competitions) {
-                        clist.addElement(competition.full_name);
-                    }
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
             }
         });
         sel_discp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Discp window = new Discp();
+                ////System.out.println(dicp_list.getSelectedIndices());
+                Discp window = new Discp(disciplines,dlist);
+                window.pack();
+                window.setVisible(true);
+            }
+        });
+        org.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Orgp window = new Orgp(orgpersons,jlist,orglistbox);
+                window.pack();
+                window.setVisible(true);
+            }
+        });
+        списокButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Reqst window = new Reqst(competitions.get(Cname.getSelectedIndex()));
                 window.pack();
                 window.setVisible(true);
             }

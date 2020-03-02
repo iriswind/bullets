@@ -22,25 +22,15 @@ public class Discp extends JFrame{
     private JButton close;
     private JLabel reslb;
     private List<Discipline> disciplines;
+    private DefaultListModel listModel;
 
-    public Discp() {
+    public Discp(List<Discipline> disciplines,DefaultListModel listModel) {
         this.getContentPane().add(panel1);
+        this.disciplines=disciplines;
+        this.listModel=listModel;
         idl.setVisible(false);
         setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-        DefaultListModel listModel = new DefaultListModel ();
         discplist.setModel(listModel);
-        try {
-            db dbH = db.getInstance();
-            this.disciplines = dbH.getAllDisciplines();
-            for (Discipline discipline : disciplines) {
-                listModel.addElement(discipline.full_name);
-            }
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
         close.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,7 +84,6 @@ public class Discp extends JFrame{
                                     {
                                         full_name = full_name + " " + wdc.getText().trim() + "кг";
                                     }
-                                //System.out.println(full_name);
                                 Discipline discp = new Discipline(disciplines.size()+1,gdc.getSelectedItem().toString().trim(), Integer.parseInt(agef.getText().trim()), Integer.parseInt(ageto.getText().trim()), Integer.parseInt(wdc.getText().trim()),full_name);
                                 try {
                                     db dbH = db.getInstance();
@@ -139,13 +128,11 @@ public class Discp extends JFrame{
                         {
                             full_name = full_name + " " + wdc.getText().trim() + "кг";
                         }
-                        //System.out.println(full_name);
                         disciplines.get(idx).discp_group=gdc.getSelectedItem().toString().trim();
                         disciplines.get(idx).age_low=Integer.parseInt(agef.getText().trim());
                         disciplines.get(idx).age_high=Integer.parseInt(ageto.getText().trim());
                         disciplines.get(idx).weight=Integer.parseInt(wdc.getText().trim());
                         disciplines.get(idx).full_name=full_name;
-                        //Discipline discp = new Discipline(disciplines.size()+1,gdc.getSelectedItem().toString().trim(), Integer.parseInt(agef.getText().trim()), Integer.parseInt(ageto.getText().trim()), Integer.parseInt(wdc.getText().trim()),full_name);
                         try {
                             db dbH = db.getInstance();
                             dbH.updDiscipline(disciplines.get(idx));
