@@ -59,6 +59,7 @@ public class Discp extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Integer idx=discplist.getSelectedIndex();
                 String full_name=disciplines.get(idx).discp_group;
+                String dgr=gdc.getSelectedItem().toString().trim();
                 if ((agef.getText().trim().length() == 0) || (ageto.getText().trim().length() == 0) || (Integer.parseInt(agef.getText().trim())>Integer.parseInt(ageto.getText().trim())) ||
                         (Integer.parseInt(agef.getText().trim())<1) || (Integer.parseInt(ageto.getText().trim())<5) )
                     {
@@ -66,6 +67,8 @@ public class Discp extends JFrame{
                     }
                 else
                     {
+                        Integer alow=Integer.parseInt(agef.getText().trim());
+                        Integer ahigh=Integer.parseInt(ageto.getText().trim());
                         if  ( (gdc.getSelectedIndex() == 1) & ((wdc.getText().trim().length() == 0) | (Integer.parseInt(wdc.getText().trim())<1)) )
                             {
                             reslb.setText("Укажите весовую категорию");
@@ -80,17 +83,29 @@ public class Discp extends JFrame{
                                     {
                                         full_name = full_name + " " + agef.getText().trim() + "-" + ageto.getText().trim() + Utils.getstrage(Integer.parseInt(ageto.getText().trim()));
                                     }
+                                Integer wght=Integer.parseInt(wdc.getText().trim());
                                 if (gdc.getSelectedIndex() == 1)
                                     {
                                         full_name = full_name + " " + wdc.getText().trim() + "кг";
                                     }
-                                Discipline discp = new Discipline(disciplines.size()+1,gdc.getSelectedItem().toString().trim(), Integer.parseInt(agef.getText().trim()), Integer.parseInt(ageto.getText().trim()), Integer.parseInt(wdc.getText().trim()),full_name);
+                                else
+                                    {
+                                        wght=0;
+                                    }
+                                Discipline discp = new Discipline(disciplines.size()+1,dgr, alow, ahigh, wght,full_name);
                                 try {
                                     db dbH = db.getInstance();
-                                    dbH.addDiscipline(discp);
-                                    reslb.setText("Запись добавлена");
-                                    disciplines.add(discp);
-                                    listModel.addElement(full_name);
+                                    Integer i = dbH.isExistsDiscipline(discp);
+                                    if (i==0) {
+                                        dbH.addDiscipline(discp);
+                                        reslb.setText("Запись добавлена");
+                                        disciplines.add(discp);
+                                        listModel.addElement(full_name);
+                                        }
+                                    else
+                                        {
+                                            reslb.setText("Дисциплина уже присутствует");
+                                        }
                                 } catch (SQLException e1) {
                                     e1.printStackTrace();
                                 }
@@ -124,14 +139,16 @@ public class Discp extends JFrame{
                         {
                             full_name = full_name + " " + agef.getText().trim() + "-" + ageto.getText().trim() + Utils.getstrage(Integer.parseInt(ageto.getText().trim()));
                         }
+                        String wght="0";
                         if (gdc.getSelectedIndex() == 1)
                         {
                             full_name = full_name + " " + wdc.getText().trim() + "кг";
+                            wght=wdc.getText().trim();
                         }
                         disciplines.get(idx).discp_group=gdc.getSelectedItem().toString().trim();
                         disciplines.get(idx).age_low=Integer.parseInt(agef.getText().trim());
                         disciplines.get(idx).age_high=Integer.parseInt(ageto.getText().trim());
-                        disciplines.get(idx).weight=Integer.parseInt(wdc.getText().trim());
+                        disciplines.get(idx).weight=Integer.parseInt(wght);
                         disciplines.get(idx).full_name=full_name;
                         try {
                             db dbH = db.getInstance();

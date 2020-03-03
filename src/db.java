@@ -59,6 +59,23 @@ public class db {
             return Collections.emptyList();
         }
         }
+    public Integer isExistsCompetition(Competition competition) {
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "SELECT COUNT(*) CN FROM (SELECT * FROM COMPETITION WHERE TITLE=? AND LOCATION=? AND C_DATE=?) O"))
+        {
+            statement.setObject(1, competition.title);
+            statement.setObject(2, competition.location);
+            statement.setObject(3, competition.c_date);
+            ResultSet resultSet=statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("CN");
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return null;
+        }
+    }
     public List<Discipline> getAllDisciplines() {
         try (Statement statement = this.connection.createStatement()) {
             List<Discipline> discipline = new ArrayList<Discipline>();
@@ -91,6 +108,24 @@ public class db {
             return Collections.emptyList();
         }
     }
+    public Integer isExistsDiscipline(Discipline discipline) {
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "SELECT COUNT(*) CN FROM (SELECT * FROM DISCIPLINES WHERE DISCP_GROUP=? AND AGE_LOW=? AND AGE_HIGH=? AND WEIGHT=?) O"))
+        {
+            statement.setObject(1, discipline.discp_group);
+            statement.setObject(2, discipline.age_low);
+            statement.setObject(3, discipline.age_high);
+            statement.setObject(4, discipline.weight);
+            ResultSet resultSet=statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("CN");
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return null;
+        }
+    }
     public List<Orgperson> getAllOrgPersons() {
         try (Statement statement = this.connection.createStatement()) {
             List<Orgperson> orgpersons = new ArrayList<Orgperson>();
@@ -118,6 +153,22 @@ public class db {
             return Collections.emptyList();
         }
     }
+    public Integer isExistsOrgperson(Orgperson orgperson) {
+        try (PreparedStatement statement = this.connection.prepareStatement(
+                "SELECT COUNT(*) CN FROM (SELECT * FROM ORGPERSONS WHERE FIO=?) O"))
+        {
+            statement.setObject(1, orgperson.fio);
+            ResultSet resultSet=statement.executeQuery();
+            resultSet.next();
+            return resultSet.getInt("CN");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return null;
+        }
+    }
     public List<Request> getRequest(Integer id) {
         try (Statement statement = this.connection.createStatement()) {
             List<Request> requests = new ArrayList<Request>();
@@ -140,6 +191,25 @@ public class db {
             e.printStackTrace();
             // Если произошла ошибка - возвращаем пустую коллекцию
             return Collections.emptyList();
+        }
+    }
+    public Integer isExistsRequest(Request request) {
+        try (PreparedStatement statement = this.connection.prepareStatement(
+            "SELECT COUNT(*) CN FROM (SELECT * FROM REQUEST WHERE FIO=? AND CLUB=? AND BIRTH_DATE=? AND ID=?) O"))
+                {
+                    statement.setObject(1, request.fio);
+                    statement.setObject(2, request.club);
+                    statement.setObject(3, request.r_date);
+                    statement.setObject(4, request.id_comp);
+                    ResultSet resultSet=statement.executeQuery();
+                    resultSet.next();
+                    return resultSet.getInt("CN");
+                }
+
+         catch (SQLException e) {
+            e.printStackTrace();
+            // Если произошла ошибка - возвращаем пустую коллекцию
+            return null;
         }
     }
     public Integer getmaxidRequest() {

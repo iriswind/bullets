@@ -81,11 +81,19 @@ public class Comptl extends JFrame{
                                         try
                                             {
                                             db dbH = db.getInstance();
-                                            dbH.addCompetitions(cmp);
-                                            addlb.setText("Запись добавлена");
-                                            competitions.add(cmp);
-                                            listModel.addElement(full_name);
-                                            clist.addElement(full_name);
+                                            Integer i = dbH.isExistsCompetition(cmp);
+                                            if (i==0)
+                                                {
+                                                dbH.addCompetitions(cmp);
+                                                addlb.setText("Запись добавлена");
+                                                competitions.add(cmp);
+                                                listModel.addElement(full_name);
+                                                clist.addElement(full_name);
+                                                }
+                                            else
+                                                {
+                                                    addlb.setText("Мероприятие уже есть");
+                                                }
                                             }
                                         catch (SQLException e)
                                             {
